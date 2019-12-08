@@ -3,19 +3,34 @@
     <title>Text</title>
     <meta name="description" content="Text - A-Frame">
     <script src="https://cdn.jsdelivr.net/gh/aframevr/aframe@333873f3279c8d49881577662e16e51baa480ea3/dist/aframe-master.min.js"></script>
+
   </head>
+  <script>
+      AFRAME.registerComponent('cursor-listener', {
+          init: function () {
+              this.el.addEventListener('click', function (e) {
+                  window.open("https://stackoverflow.com/questions/8454510/open-url-in-same-window-and-in-same-tab")
+              })
+          }
+      })
+  </script>
   <body>
     <a-scene>
-      <a-sky color="#6EBAA7"></a-sky>
+      <!-- <a-sky color="#6EBAA7"></a-sky> -->
+
+<!-- This animation begins when the sphere is clicked with the mouse. -->
+
 
       <!-- Spacing. -->
       <a-entity position="-1 2.5 0"
                 geometry="primitive: plane; width: auto; height: auto"
                 material="color: #eee"
+                onclick="location.href='https://crieit.net'"
                 text="width: 2; color: #666; value: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut enim ad minim veniam">
       </a-entity>
 
       <a-entity position="-1 2 0"
+                cursor-listener
                 text="width: 2; lineHeight: 50; letterSpacing: 5; color: white; value: [LINE AND LETTER SPACING] Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut enim ad minim veniam">
       </a-entity>
 
@@ -23,6 +38,7 @@
       <a-entity position="2 2 0">
         <a-entity mixin="marker" position="0 0 0.01"></a-entity>
         <a-entity position="0 0 0" geometry="primitive: plane; width: auto; height: auto" material="color: #eee"
+                  cursor-listener
                   text="color: yellow; align: left; value: [LEFT ALIGNED]; width: 2; ">
         </a-entity>
         <a-entity position="0 0.2 0" geometry="primitive: plane; width: auto; height: auto" material="color: #eee"
@@ -33,9 +49,18 @@
         </a-entity>
       </a-entity>
 
-      <a-entity position="0 1.8 2">
+      <!-- <a-entity position="0 1.8 2">
         <a-entity camera look-controls wasd-controls></a-entity>
-      </a-entity>
+      </a-entity> -->
+      <a-entity camera look-controls>
+          <a-entity cursor="fuse: true; fuseTimeout: 500"
+                    position="0 0 -1"
+                    geometry="primitive: ring; radiusInner: 0.02; radiusOuter: 0.03"
+                    material="color: black; shader: flat">
+          </a-entity>
+        </a-entity>
+        
+        <a-entity id="box" cursor-listener geometry="primitive: box" material="color: blue"></a-entity>
     </a-scene>
   </body>
 </html>
