@@ -1,0 +1,41 @@
+<html>
+  <head>
+    <title>Text</title>
+    <meta name="description" content="Text - A-Frame">
+    <script src="https://cdn.jsdelivr.net/gh/aframevr/aframe@333873f3279c8d49881577662e16e51baa480ea3/dist/aframe-master.min.js"></script>
+  </head>
+  <body>
+    <a-scene>
+      <a-sky color="#6EBAA7"></a-sky>
+
+      <!-- Spacing. -->
+      <a-entity position="-1 2.5 0"
+                geometry="primitive: plane; width: auto; height: auto"
+                material="color: #eee"
+                text="width: 2; color: #666; value: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut enim ad minim veniam">
+      </a-entity>
+
+      <a-entity position="-1 2 0"
+                text="width: 2; lineHeight: 50; letterSpacing: 5; color: white; value: [LINE AND LETTER SPACING] Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut enim ad minim veniam">
+      </a-entity>
+
+      <!-- Alignments. -->
+      <a-entity position="2 2 0">
+        <a-entity mixin="marker" position="0 0 0.01"></a-entity>
+        <a-entity position="0 0 0" geometry="primitive: plane; width: auto; height: auto" material="color: #eee"
+                  text="color: yellow; align: left; value: [LEFT ALIGNED]; width: 2; ">
+        </a-entity>
+        <a-entity position="0 0.2 0" geometry="primitive: plane; width: auto; height: auto" material="color: #eee"
+                  text="color: red; align: right; value: [RIGHT ALIGNED]; width: 2; ">
+        </a-entity>
+        <a-entity position="0 0.4 0" geometry="primitive: plane; width: auto; height: auto" material="color: #eee"
+                  text="color: blue; align: center; value: [CENTER ALIGNED]; width: 2; ">
+        </a-entity>
+      </a-entity>
+
+      <a-entity position="0 1.8 2">
+        <a-entity camera look-controls wasd-controls></a-entity>
+      </a-entity>
+    </a-scene>
+  </body>
+</html>
