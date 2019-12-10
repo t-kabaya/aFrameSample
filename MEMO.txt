@@ -1,4 +1,12 @@
 Textのサイズは、Widthを大きくすると大きくなる。
 Textでは、日本語を使うことが出来ない。
-Imageを表示させる方法が分からない。
+Imageを表示させる方法は、公式のFAQに書いてあった。
 
+Why does my asset (e.g., image, video, model) not load?
+First, if you are doing local development, make sure you are using a local server so that asset requests work properly.
+
+If you are loading the asset from a different domain, make sure that the asset is served with cross-origin resource sharing (CORS) headers. You could either find a host to serve the asset with CORS headers, or place the asset on the same domain (directory) as your application.
+
+If you are trying to load a video, make sure the browser supports the video (i.e., encoding, framerate, size).
+
+Read the Hosting and Publishing guide for more information.
